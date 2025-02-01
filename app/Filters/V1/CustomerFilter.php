@@ -1,7 +1,9 @@
 <?php
-namespace App\Http\Services\V1;
+namespace App\Filters\V1;
 use Illuminate\Http\Request;
-class CustomerQuery{
+use App\Filters\ApiFilter;
+
+class CustomerFilter extends ApiFilter {
     protected $safeParams = [
    'name'=>['eq'],
    'type'=>['eq'],
