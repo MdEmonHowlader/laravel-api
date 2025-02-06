@@ -10,13 +10,13 @@ class  ApiFilter {
         $eolquery=[];
         foreach($this->safeParams as $parm=>$operators){
             $query=$request->query($parm);
-            if(!isset($query)){
+            if(!isset($query) || !is_array($query)){
                 continue;
             }
             $column=$this->columnMap[$parm]??$parm;
             foreach($operators as $operator){
                 if(isset($query[$operator])){
-                   $eolquery[$parm]=$column.$this->columnMap[$operator].$query[$operator];
+                   $eolquery[$parm]=$column.($this->operatorMap[$operator] ?? $operator).$query[$operator];
                 }
             }
         }  
