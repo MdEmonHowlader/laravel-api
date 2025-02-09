@@ -27,7 +27,7 @@ class InvoiceController extends Controller
         }
        
     }
-
+// ?status[ne]=P
     /**
      * Show the form for creating a new resource.
      */
